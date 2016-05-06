@@ -35,19 +35,19 @@ public class Stylist {
     }
   }
 
-//   public void save() {
-//     try(Connection con = DB.sql2o.open()) {
-//       String sql = "INSERT INTO cuisines(name) VALUES (:name)";
-//       this.id = (int) con.createQuery(sql, true)
-//         .addParameter("name", this.name)
-//         .executeUpdate()
-//         .getKey();
-//     }
-//   }
-//
+  public void save() {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "INSERT INTO stylists(name) VALUES (:name)";
+      this.id = (int) con.createQuery(sql, true)
+        .addParameter("name", this.name)
+        .executeUpdate()
+        .getKey();
+    }
+  }
+
 //   public static Stylist find(int id) {
 //     try(Connection con = DB.sql2o.open()) {
-//       String sql = "SELECT * FROM cuisines WHERE id=:id";
+//       String sql = "SELECT * FROM stylists WHERE id=:id";
 //       Stylist cuisine = con.createQuery(sql)
 //         .addParameter("id", id)
 //         .executeAndFetchFirst(Stylist.class);
@@ -66,7 +66,7 @@ public class Stylist {
 //
 //   public void update(String name) {
 //     try(Connection con = DB.sql2o.open()) {
-//       String sql = "UPDATE cuisines SET name = :name WHERE id=:id";
+//       String sql = "UPDATE stylists SET name = :name WHERE id=:id";
 //       con.createQuery(sql)
 //         .addParameter("name", name)
 //         .addParameter("id", id)
@@ -76,7 +76,7 @@ public class Stylist {
 //
 //   public void delete() {
 //     try(Connection con = DB.sql2o.open()) {
-//       String sql = "DELETE FROM cuisines WHERE id=:id";
+//       String sql = "DELETE FROM stylists WHERE id=:id";
 //       con.createQuery(sql)
 //         .addParameter("id", id)
 //         .executeUpdate();
