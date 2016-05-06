@@ -20,10 +20,10 @@ public class Client {
     return id;
   }
 
-  // public int getCuisineId() {
-  //   return stylist_id;
-  // }
-  //
+  public int getStylistId() {
+    return stylist_id;
+  }
+
   public static List<Client> all() {
     String sql = "SELECT * FROM clients";
     try(Connection con = DB.sql2o.open()) {
