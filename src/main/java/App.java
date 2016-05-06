@@ -55,14 +55,14 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-//     post("/stylists/:id/delete", (request, response) -> {
-//       Map<String, Object> model = new HashMap<String, Object>();
-//       Stylist stylist = Stylist.find(Integer.parseInt(request.params("id")));
-//       stylist.delete();
-//       model.put("template", "templates/stylist-delete-success.vtl");
-//       return new ModelAndView(model, layout);
-//     }, new VelocityTemplateEngine());
-//
+    post("/stylists/:id/delete", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      Stylist stylist = Stylist.find(Integer.parseInt(request.params("id")));
+      stylist.delete();
+      model.put("template", "templates/stylist-delete-success.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
 //     get("stylists/:id/restaurants/new", (request, response) -> {
 //       Map<String, Object> model = new HashMap<String, Object>();
 //       Stylist stylist = Stylist.find(Integer.parseInt(request.params(":id")));

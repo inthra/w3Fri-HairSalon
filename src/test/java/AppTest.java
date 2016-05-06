@@ -70,6 +70,17 @@ public class AppTest extends FluentTest {
     assertThat(pageSource()).contains("Cherie Brown");
   }
 
+  @Test
+  public void stylistDelete() {
+    Stylist testStylist = new Stylist("Cherie");
+    testStylist.save();
+    String stylistPath = String.format("http://localhost:4567/stylists/%d", testStylist.getId());
+    goTo(stylistPath);
+    submit("#delete-stylist");
+    assertEquals(0, Stylist.all().size());
+    assertThat(pageSource()).contains("Your stylist has been deleted.");
+  }
+
 //   @Test
 //   public void stylistRestaurantsFormIsDisplayed() {
 //     goTo("http://localhost:4567/stylists/new");
@@ -97,17 +108,6 @@ public class AppTest extends FluentTest {
 //     assertThat(pageSource()).contains("Pit Cherie");
 //     assertThat(pageSource()).contains("Tasty smoke");
 //   }
-//
-  @Test
-  public void stylistDelete() {
-    Stylist testStylist = new Stylist("Cherie");
-    testStylist.save();
-    String stylistPath = String.format("http://localhost:4567/stylists/%d", testStylist.getId());
-    goTo(stylistPath);
-    submit("#delete-stylist");
-    assertEquals(0, Stylist.all().size());
-    assertThat(pageSource()).contains("Your stylist has been deleted.");
-  }
 //
 //   @Test
 //   public void restaurantUpdate() {
