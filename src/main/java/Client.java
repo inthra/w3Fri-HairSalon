@@ -16,10 +16,10 @@ public class Client {
     return name;
   }
 
-  // public int getId() {
-  //   return id;
-  // }
-  //
+  public int getId() {
+    return id;
+  }
+
   // public int getCuisineId() {
   //   return stylist_id;
   // }
