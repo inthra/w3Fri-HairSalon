@@ -47,14 +47,14 @@ public class StylistTest {
     assertEquals(testStylist.getId(), savedStylist.getId());
   }
 
-  // @Test
-  // public void find_findStylistInDatabase_true() {
-  //   Stylist testStylist = new Stylist("Rachel");
-  //   testStylist.save();
-  //   Stylist savedStylist = Stylist.find(testStylist.getId());
-  //   assertTrue(testStylist.equals(savedStylist));
-  // }
-  //
+  @Test
+  public void find_findStylistInDatabase_true() {
+    Stylist testStylist = new Stylist("Rachel");
+    testStylist.save();
+    Stylist savedStylist = Stylist.find(testStylist.getId());
+    assertTrue(testStylist.equals(savedStylist));
+  }
+
   // @Test
   // public void getRestaurants_retrievesAllRestaurantsFromDatabase_restaurantsList() {
   //   Stylist testStylist = new Stylist("Rachel");

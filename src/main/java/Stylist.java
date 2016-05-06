@@ -45,16 +45,16 @@ public class Stylist {
     }
   }
 
-//   public static Stylist find(int id) {
-//     try(Connection con = DB.sql2o.open()) {
-//       String sql = "SELECT * FROM stylists WHERE id=:id";
-//       Stylist cuisine = con.createQuery(sql)
-//         .addParameter("id", id)
-//         .executeAndFetchFirst(Stylist.class);
-//       return cuisine;
-//     }
-//   }
-//
+  public static Stylist find(int id) {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "SELECT * FROM stylists WHERE id=:id";
+      Stylist stylist = con.createQuery(sql)
+        .addParameter("id", id)
+        .executeAndFetchFirst(Stylist.class);
+      return stylist;
+    }
+  }
+
 //   public List<Restaurant> getRestaurants() {
 //     try(Connection con = DB.sql2o.open()) {
 //       String sql = "SELECT * FROM restaurants where cuisine_id=:id";
