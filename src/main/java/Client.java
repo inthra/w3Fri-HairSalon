@@ -41,18 +41,17 @@ public class Client {
     }
   }
 
-  // public void save(){
-  //   try (Connection con = DB.sql2o.open()) {
-  //     String sql = "INSERT INTO clients (client_name, client_description, stylist_id) VALUES (:name, :description, :stylist_id)";
-  //     this.id = (int) con.createQuery(sql, true)
-  //       .addParameter("name" , this.client_name)
-  //       .addParameter("description", this.client_description)
-  //       .addParameter("stylist_id", this.stylist_id)
-  //       .executeUpdate()
-  //       .getKey();
-  //   }
-  // }
-  //
+  public void save(){
+    try (Connection con = DB.sql2o.open()) {
+      String sql = "INSERT INTO clients (name, stylist_id) VALUES (:name, :stylist_id)";
+      this.id = (int) con.createQuery(sql, true)
+        .addParameter("name" , this.name)
+        .addParameter("stylist_id", this.stylist_id)
+        .executeUpdate()
+        .getKey();
+    }
+  }
+
   // public static Client find(int id) {
   //   try (Connection con = DB.sql2o.open()) {
   //     String sql = "SELECT * FROM clients WHERE id=:id";

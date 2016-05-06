@@ -32,13 +32,13 @@ public class ClientTest {
     assertTrue(firstClient.equals(secondClient));
   }
 
-  // @Test
-  // public void save_savesIntoDatabase_true() {
-  //   Client testClient = new Client("Gretchen", 1);
-  //   testClient.save();
-  //   assertTrue(Client.all().get(0).equals(testClient));
-  // }
-  //
+  @Test
+  public void save_savesIntoDatabase_true() {
+    Client testClient = new Client("Gretchen", 1);
+    testClient.save();
+    assertTrue(Client.all().get(0).equals(testClient));
+  }
+
   // @Test
   // public void save_assignsIdToObject() {
   //   Client testClient = new Client("Gretchen", 1);
