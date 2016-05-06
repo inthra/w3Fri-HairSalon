@@ -40,19 +40,19 @@ public class AppTest extends FluentTest {
     assertThat(pageSource()).contains("Your stylist has been saved.");
   }
 
-//   @Test
-//   public void stylistIsDisplayedTest() {
-//     goTo("http://localhost:4567/stylists/new");
-//     fill("#stylist_name").with("Cherie");
-//     submit(".btn");
-//     click("a", withText("View stylists"));
-//     assertThat(pageSource()).contains("Cherie");
-//   }
-//
+  @Test
+  public void stylistIsDisplayedTest() {
+    goTo("http://localhost:4567/stylists/new");
+    fill("#input_stylist_name").with("Cherie");
+    submit(".btn");
+    click("a", withText("View stylists"));
+    assertThat(pageSource()).contains("Cherie");
+  }
+
 //   @Test
 //   public void stylistShowPageDisplaysStylistType() {
 //     goTo("http://localhost:4567/stylists/new");
-//     fill("#stylist_name").with("Cherie");
+//     fill("#input_stylist_name").with("Cherie");
 //     submit(".btn");
 //     click("a", withText("View stylists"));
 //     click("a", withText("Cherie"));
@@ -62,7 +62,7 @@ public class AppTest extends FluentTest {
 //   @Test
 //   public void stylistRestaurantsFormIsDisplayed() {
 //     goTo("http://localhost:4567/stylists/new");
-//     fill("#stylist_name").with("Cherie");
+//     fill("#input_stylist_name").with("Cherie");
 //     submit(".btn");
 //     click("a", withText("View stylists"));
 //     click("a", withText("Cherie"));
@@ -73,7 +73,7 @@ public class AppTest extends FluentTest {
 //   @Test
 //   public void restaurantsIsAddedAndDisplayed() {
 //     goTo("http://localhost:4567/stylists/new");
-//     fill("#stylist_name").with("Cherie");
+//     fill("#input_stylist_name").with("Cherie");
 //     submit(".btn");
 //     click("a", withText("View stylists"));
 //     click("a", withText("Cherie"));
