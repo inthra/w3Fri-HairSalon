@@ -30,17 +30,17 @@ public class Client {
       return con.createQuery(sql).executeAndFetch(Client.class);
     }
   }
-  //
-  // @Override
-  // public boolean equals(Object otherClient) {
-  //   if (!(otherClient instanceof Client)) {
-  //     return false;
-  //   } else {
-  //     Client newClient = (Client) otherClient;
-  //     return this.getName().equals(newClient.getName()) && this.getDescription().equals(newClient.getDescription());
-  //   }
-  // }
-  //
+
+  @Override
+  public boolean equals(Object otherClient) {
+    if (!(otherClient instanceof Client)) {
+      return false;
+    } else {
+      Client newClient = (Client) otherClient;
+      return this.getName().equals(newClient.getName());
+    }
+  }
+
   // public void save(){
   //   try (Connection con = DB.sql2o.open()) {
   //     String sql = "INSERT INTO clients (client_name, client_description, stylist_id) VALUES (:name, :description, :stylist_id)";

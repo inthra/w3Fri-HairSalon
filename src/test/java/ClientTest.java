@@ -25,13 +25,13 @@ public class ClientTest {
     assertEquals(Client.all().size(), 0);
   }
 
-  // @Test
-  // public void equals_returnsTrueIfNamesAreSame() {
-  //   Client firstClient = new Client("Gretchen", 1);
-  //   Client secondClient = new Client("Amber", 1);
-  //   assertTrue(firstClient.equals(secondClient));
-  // }
-  //
+  @Test
+  public void equals_returnsTrueIfNamesAreSame() {
+    Client firstClient = new Client("Gretchen", 1);
+    Client secondClient = new Client("Gretchen", 1);
+    assertTrue(firstClient.equals(secondClient));
+  }
+
   // @Test
   // public void save_savesIntoDatabase_true() {
   //   Client testClient = new Client("Gretchen", 1);
