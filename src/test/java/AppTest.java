@@ -35,7 +35,7 @@ public class AppTest extends FluentTest {
   public void stylistIsCreatedTest() {
     goTo("http://localhost:4567/");
     click("a", withText("Add a new stylist"));
-    fill("#input_stylist_name").with("Cherie");
+    fill("#input-stylist-name").with("Cherie");
     submit(".btn");
     assertThat(pageSource()).contains("Your stylist has been saved.");
   }
@@ -43,7 +43,7 @@ public class AppTest extends FluentTest {
   @Test
   public void stylistIsDisplayedTest() {
     goTo("http://localhost:4567/stylists/new");
-    fill("#input_stylist_name").with("Cherie");
+    fill("#input-stylist-name").with("Cherie");
     submit(".btn");
     click("a", withText("View stylists"));
     assertThat(pageSource()).contains("Cherie");
@@ -52,17 +52,28 @@ public class AppTest extends FluentTest {
   @Test
   public void stylistShowPageDisplaysStylistName() {
     goTo("http://localhost:4567/stylists/new");
-    fill("#input_stylist_name").with("Cherie");
+    fill("#input-stylist-name").with("Cherie");
     submit(".btn");
     click("a", withText("View stylists"));
     click("a", withText("Cherie"));
     assertThat(pageSource()).contains("Cherie");
   }
 
+  @Test
+  public void stylistUpdate() {
+    Stylist testStylist = new Stylist("Cherie");
+    testStylist.save();
+    String stylistPath = String.format("http://localhost:4567/stylists/%d", testStylist.getId());
+    goTo(stylistPath);
+    fill("#update-stylist-name").with("Cherie Brown");
+    submit("#update-stylist");
+    assertThat(pageSource()).contains("Cherie Brown");
+  }
+
 //   @Test
 //   public void stylistRestaurantsFormIsDisplayed() {
 //     goTo("http://localhost:4567/stylists/new");
-//     fill("#input_stylist_name").with("Cherie");
+//     fill("#input-stylist-name").with("Cherie");
 //     submit(".btn");
 //     click("a", withText("View stylists"));
 //     click("a", withText("Cherie"));
@@ -73,7 +84,7 @@ public class AppTest extends FluentTest {
 //   @Test
 //   public void restaurantsIsAddedAndDisplayed() {
 //     goTo("http://localhost:4567/stylists/new");
-//     fill("#input_stylist_name").with("Cherie");
+//     fill("#input-stylist-name").with("Cherie");
 //     submit(".btn");
 //     click("a", withText("View stylists"));
 //     click("a", withText("Cherie"));
@@ -87,27 +98,16 @@ public class AppTest extends FluentTest {
 //     assertThat(pageSource()).contains("Tasty smoke");
 //   }
 //
-//   @Test
-//   public void stylistUpdate() {
-//     Stylist testStylist = new Stylist("Cherie");
-//     testStylist.save();
-//     String stylistPath = String.format("http://localhost:4567/stylists/%d", testStylist.getId());
-//     goTo(stylistPath);
-//     fill("#stylist_name").with("Texas Cherie");
-//     submit("#update-stylist");
-//     assertThat(pageSource()).contains("Texas Cherie");
-//   }
-//
-//   @Test
-//   public void stylistDelete() {
-//     Stylist testStylist = new Stylist("Cherie");
-//     testStylist.save();
-//     String stylistPath = String.format("http://localhost:4567/stylists/%d", testStylist.getId());
-//     goTo(stylistPath);
-//     submit("#delete-stylist");
-//     assertEquals(0, Stylist.all().size());
-//     assertThat(pageSource()).contains("Your stylist has been deleted.");
-//   }
+  @Test
+  public void stylistDelete() {
+    Stylist testStylist = new Stylist("Cherie");
+    testStylist.save();
+    String stylistPath = String.format("http://localhost:4567/stylists/%d", testStylist.getId());
+    goTo(stylistPath);
+    submit("#delete-stylist");
+    assertEquals(0, Stylist.all().size());
+    assertThat(pageSource()).contains("Your stylist has been deleted.");
+  }
 //
 //   @Test
 //   public void restaurantUpdate() {
