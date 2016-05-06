@@ -19,12 +19,12 @@ public class ClientTest {
     Client testClient = new Client("Gretchen", 1);
     assertEquals("Gretchen", testClient.getName());
   }
-  //
-  // @Test
-  // public void all_ClientListIsEmptyFirst() {
-  //   assertEquals(Client.all().size(), 0);
-  // }
-  //
+
+  @Test
+  public void all_ClientListIsEmptyFirst() {
+    assertEquals(Client.all().size(), 0);
+  }
+
   // @Test
   // public void equals_returnsTrueIfNamesAreSame() {
   //   Client firstClient = new Client("Gretchen", 1);

@@ -24,12 +24,12 @@ public class Client {
   //   return stylist_id;
   // }
   //
-  // public static List<Client> all() {
-  //   String sql = "SELECT * FROM clients";
-  //   try(Connection con = DB.sql2o.open()) {
-  //     return con.createQuery(sql).executeAndFetch(Client.class);
-  //   }
-  // }
+  public static List<Client> all() {
+    String sql = "SELECT * FROM clients";
+    try(Connection con = DB.sql2o.open()) {
+      return con.createQuery(sql).executeAndFetch(Client.class);
+    }
+  }
   //
   // @Override
   // public boolean equals(Object otherClient) {
