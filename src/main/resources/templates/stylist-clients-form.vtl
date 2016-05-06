@@ -1,0 +1,12 @@
+<h1>Add a client to $stylist.getName()</h1>
+
+<form action="/clients" method="post">
+  <input id="stylist-id" name="stylist-id" type="hidden" value="$stylist.getId()">
+
+  <div class="form-group">
+    <label for="client-name">Client name here:</label>
+    <input id="client-name" name="client-name" type="text" class="form-control">
+  </div>
+
+  <button type="submit" class="btn btn-success">Add</button>
+</form>

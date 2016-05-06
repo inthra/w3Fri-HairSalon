@@ -1,0 +1,11 @@
+<h1>$client.getName()</h1>
+
+<p>Edit client:</p>
+
+<form action="/stylists/$client.getStylistId()/clients/$client.getId()" method="post">
+  <label for="client-name">Edit client name here:</label>
+  <input id="client-name" name="client-name" type="text" class="form-control">
+  <button type="submit" class="btn btn-success" id="update-client">Update Client</button>
+</form>
+
+<a href="/stylists/$stylist.getId()">Return to $stylist.getName()</a>
