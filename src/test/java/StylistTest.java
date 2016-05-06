@@ -20,18 +20,18 @@ public class StylistTest {
     assertEquals("Rachel", testStylist.getName());
   }
 
-  // @Test
-  // public void all_StylistListEmptyAtFirst() {
-  //   assertEquals(Stylist.all().size(), 0);
-  // }
-  //
-  // @Test
-  // public void equals_returnsTrueIfNamesAreSame() {
-  //   Stylist firstStylist = new Stylist("Rachel");
-  //   Stylist secondStylist = new Stylist("Rachel");
-  //   assertTrue(firstStylist.equals(secondStylist));
-  // }
-  //
+  @Test
+  public void all_StylistListEmptyAtFirst() {
+    assertEquals(Stylist.all().size(), 0);
+  }
+
+  @Test
+  public void equals_returnsTrueIfNamesAreSame() {
+    Stylist firstStylist = new Stylist("Rachel");
+    Stylist secondStylist = new Stylist("Rachel");
+    assertTrue(firstStylist.equals(secondStylist));
+  }
+
   // @Test
   // public void save_savesIntoDatabase_true() {
   //   Stylist testStylist = new Stylist("Rachel");
