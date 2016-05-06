@@ -52,16 +52,16 @@ public class Client {
     }
   }
 
-  // public static Client find(int id) {
-  //   try (Connection con = DB.sql2o.open()) {
-  //     String sql = "SELECT * FROM clients WHERE id=:id";
-  //     Client client = con.createQuery(sql)
-  //       .addParameter("id", id)
-  //       .executeAndFetchFirst(Client.class);
-  //     return client;
-  //   }
-  // }
-  //
+  public static Client find(int id) {
+    try (Connection con = DB.sql2o.open()) {
+      String sql = "SELECT * FROM clients WHERE id=:id";
+      Client client = con.createQuery(sql)
+        .addParameter("id", id)
+        .executeAndFetchFirst(Client.class);
+      return client;
+    }
+  }
+
   // public void update(String client_name, String client_description) {
   //   if (client_name != null) {
   //     try(Connection con = DB.sql2o.open()) {
