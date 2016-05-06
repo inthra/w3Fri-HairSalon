@@ -9,15 +9,15 @@ public class Stylist {
   public Stylist(String name) {
     this.name = name;
   }
-//
-//   public String getType() {
-//     return name;
-//   }
-//
-//   public int getId() {
-//     return id;
-//   }
-//
+
+  public String getName() {
+    return name;
+  }
+
+  public int getId() {
+    return id;
+  }
+
 //   public static List<Stylist> all() {
 //     String sql = "SELECT id, name FROM cuisines";
 //     try(Connection con = DB.sql2o.open()) {
@@ -31,7 +31,7 @@ public class Stylist {
 //       return false;
 //     } else {
 //       Stylist newStylist = (Stylist) otherStylist;
-//       return this.getType().equals(newStylist.getType());
+//       return this.getName().equals(newStylist.getName());
 //     }
 //   }
 //

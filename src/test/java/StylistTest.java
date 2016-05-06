@@ -14,12 +14,12 @@ public class StylistTest {
     assertTrue(testStylist instanceof Stylist);
   }
 
-  // @Test
-  // public void Stylist_instantiatesWithStylistType_String() {
-  //   Stylist testStylist = new Stylist("Rachel");
-  //   assertEquals("Rachel", testStylist.getType());
-  // }
-  //
+  @Test
+  public void Stylist_instantiatesWithStylistType_String() {
+    Stylist testStylist = new Stylist("Rachel");
+    assertEquals("Rachel", testStylist.getName());
+  }
+
   // @Test
   // public void all_StylistListEmptyAtFirst() {
   //   assertEquals(Stylist.all().size(), 0);
@@ -72,7 +72,7 @@ public class StylistTest {
   //   Stylist testStylist = new Stylist("Rachel");
   //   testStylist.save();
   //   testStylist.update("Texas Rachel");
-  //   assertEquals("Texas Rachel", Stylist.find(testStylist.getId()).getType());
+  //   assertEquals("Texas Rachel", Stylist.find(testStylist.getId()).getName());
   // }
   //
   // @Test
