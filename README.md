@@ -32,7 +32,7 @@ _Inthrayuth Mahaphol: zign.int@gmail.com_
 * _Github_
 * _Atom text editor_
 * _Java_
-* _Gradle
+* _Gradle_
 * _Spark_
 * _Velocity_
 

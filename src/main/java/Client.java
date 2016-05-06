@@ -12,10 +12,10 @@ public class Client {
     this.stylist_id = stylist_id;
   }
 
-  // public String getName() {
-  //   return client_name;
-  // }
-  //
+  public String getName() {
+    return name;
+  }
+
   // public int getId() {
   //   return id;
   // }
