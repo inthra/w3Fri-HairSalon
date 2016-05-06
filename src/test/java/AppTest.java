@@ -49,16 +49,16 @@ public class AppTest extends FluentTest {
     assertThat(pageSource()).contains("Cherie");
   }
 
-//   @Test
-//   public void stylistShowPageDisplaysStylistType() {
-//     goTo("http://localhost:4567/stylists/new");
-//     fill("#input_stylist_name").with("Cherie");
-//     submit(".btn");
-//     click("a", withText("View stylists"));
-//     click("a", withText("Cherie"));
-//     assertThat(pageSource()).contains("Cherie");
-//   }
-//
+  @Test
+  public void stylistShowPageDisplaysStylistName() {
+    goTo("http://localhost:4567/stylists/new");
+    fill("#input_stylist_name").with("Cherie");
+    submit(".btn");
+    click("a", withText("View stylists"));
+    click("a", withText("Cherie"));
+    assertThat(pageSource()).contains("Cherie");
+  }
+
 //   @Test
 //   public void stylistRestaurantsFormIsDisplayed() {
 //     goTo("http://localhost:4567/stylists/new");

@@ -1,0 +1,23 @@
+<h1>$stylist.getName()</h1>
+
+<ul>
+  #foreach($client in $stylist.getRestaurants())
+  <li><a href="/clients">$client.getName()</a></li>
+  #end
+</ul>
+
+<a href="/cuisines/$cuisine.getId()/clients/new" class="btn btn-primary">Add a new client</a>
+
+<p>Edit cuisine:</p>
+
+<form action="/stylists/$stylist.getId()" method="post">
+  <label for="cuisine_type">Edit stylist here:</label>
+  <input id="cuisine_type" name="cuisine_type" type="text">
+  <button type="submit" class="btn btn-success" id="update-stylist">Update Stylist</button>
+</form>
+
+<form action="/stylists/$stylist.getId()/delete" method="post">
+  <button type="submit" class="btn btn-danger" id="delete-stylist">Delete Stylist</button>
+</form>
+
+<a href="/stylists" class="btn btn-primary">View stylists</a>
