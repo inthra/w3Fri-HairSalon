@@ -62,27 +62,18 @@ public class Client {
     }
   }
 
-  // public void update(String client_name, String client_description) {
-  //   if (client_name != null) {
-  //     try(Connection con = DB.sql2o.open()) {
-  //       String sql = "UPDATE clients SET client_name = :client_name WHERE id = :id";
-  //       con.createQuery(sql)
-  //         .addParameter("client_name", client_name)
-  //         .addParameter("id", this.getId())
-  //         .executeUpdate();
-  //     }
-  //   }
-  //   if (client_description != null) {
-  //     try(Connection con = DB.sql2o.open()) {
-  //       String sql = "UPDATE clients SET client_description = :client_description WHERE id = :id";
-  //       con.createQuery(sql)
-  //         .addParameter("client_description", client_description)
-  //         .addParameter("id", this.getId())
-  //         .executeUpdate();
-  //     }
-  //   }
-  // }
-  //
+  public void update(String name) {
+    if (name != null) {
+      try(Connection con = DB.sql2o.open()) {
+        String sql = "UPDATE clients SET name = :update_name WHERE id = :id";
+        con.createQuery(sql)
+          .addParameter("update_name", name)
+          .addParameter("id", this.getId())
+          .executeUpdate();
+      }
+    }
+  }
+
   // public void delete() {
   //   try(Connection con = DB.sql2o.open()) {
   //     String sql = "DELETE FROM clients WHERE id=:id";

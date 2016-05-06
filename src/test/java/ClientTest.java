@@ -55,14 +55,14 @@ public class ClientTest {
     assertTrue(testClient.equals(savedClient));
   }
 
-  // @Test
-  // public void update_updatesClientName_true() {
-  //   Client testClient = new Client("Gretchen", 1);
-  //   testClient.save();
-  //   testClient.update("Gretchen Smith");
-  //   assertEquals("Gretchen Smith", Client.find(testClient.getId()).getName());
-  // }
-  //
+  @Test
+  public void update_updatesClientName_true() {
+    Client testClient = new Client("Gretchen", 1);
+    testClient.save();
+    testClient.update("Gretchen Smith");
+    assertEquals("Gretchen Smith", Client.find(testClient.getId()).getName());
+  }
+
   // @Test
   // public void delete_deletesClient_true() {
   //   Client testClient = new Client("Gretchen", 1);
