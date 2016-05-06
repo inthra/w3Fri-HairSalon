@@ -66,21 +66,21 @@ public class StylistTest {
     Client[] client = new Client[] { firstClient, secondClient };
     assertTrue(testStylist.getClients().containsAll(Arrays.asList(client)));
   }
-  //
-  // @Test
-  // public void update_updatesStylistType_true() {
-  //   Stylist testStylist = new Stylist("Rachel");
-  //   testStylist.save();
-  //   testStylist.update("Texas Rachel");
-  //   assertEquals("Texas Rachel", Stylist.find(testStylist.getId()).getName());
-  // }
-  //
-  // @Test
-  // public void delete_deletesStylistType_true() {
-  //   Stylist testStylist = new Stylist("Rachel");
-  //   testStylist.save();
-  //   int testStylistId = testStylist.getId();
-  //   testStylist.delete();
-  //   assertEquals(null, Stylist.find(testStylistId));
-  // }
+
+  @Test
+  public void update_updatesStylistName_true() {
+    Stylist testStylist = new Stylist("Rachel");
+    testStylist.save();
+    testStylist.update("Rachel Brown");
+    assertEquals("Rachel Brown", Stylist.find(testStylist.getId()).getName());
+  }
+
+  @Test
+  public void delete_deletesStylist_true() {
+    Stylist testStylist = new Stylist("Rachel");
+    testStylist.save();
+    int testStylistId = testStylist.getId();
+    testStylist.delete();
+    assertEquals(null, Stylist.find(testStylistId));
+  }
 }

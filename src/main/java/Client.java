@@ -65,7 +65,7 @@ public class Client {
   public void update(String name) {
     if (name != null) {
       try(Connection con = DB.sql2o.open()) {
-        String sql = "UPDATE clients SET name = :update_name WHERE id = :id";
+        String sql = "UPDATE clients SET name = :update_name WHERE id=:id";
         con.createQuery(sql)
           .addParameter("update_name", name)
           .addParameter("id", this.getId())
