@@ -1,36 +1,36 @@
-// import org.sql2o.*; // This import is for DB support
-// import org.junit.*; // This import is for @Before and @After
-// import org.fluentlenium.adapter.FluentTest;
-// import org.junit.ClassRule;
-// import org.junit.Test;
-// import static org.junit.Assert.*;
-// import org.openqa.selenium.WebDriver;
-// import org.openqa.selenium.htmlunit.HtmlUnitDriver;
-// import static org.assertj.core.api.Assertions.assertThat;
-// import static org.fluentlenium.core.filter.FilterConstructor.*;
-//
-// public class AppTest extends FluentTest {
-//   public WebDriver webDriver = new HtmlUnitDriver();
-//
-//   @Override
-//   public WebDriver getDefaultDriver() {
-//     return webDriver;
-//   }
-//
-//   @ClassRule
-//   public static ServerRule server = new ServerRule();
-//
-//   @Rule
-//   public DatabaseRule database = new DatabaseRule();
-//
-//   @Test
-//   public void rootTest() {
-//     goTo("http://localhost:4567/");
-//     assertThat(pageSource()).contains("Find the best restaurants!");
-//     assertThat(pageSource()).contains("View Cuisine List");
-//     assertThat(pageSource()).contains("Add a New Cuisine");
-//   }
-//
+import org.sql2o.*; // This import is for DB support
+import org.junit.*; // This import is for @Before and @After
+import org.fluentlenium.adapter.FluentTest;
+import org.junit.ClassRule;
+import org.junit.Test;
+import static org.junit.Assert.*;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.fluentlenium.core.filter.FilterConstructor.*;
+
+public class AppTest extends FluentTest {
+  public WebDriver webDriver = new HtmlUnitDriver();
+
+  @Override
+  public WebDriver getDefaultDriver() {
+    return webDriver;
+  }
+
+  @ClassRule
+  public static ServerRule server = new ServerRule();
+
+  @Rule
+  public DatabaseRule database = new DatabaseRule();
+
+  @Test
+  public void rootTest() {
+    goTo("http://localhost:4567/");
+    assertThat(pageSource()).contains("Hair Salon Database");
+    assertThat(pageSource()).contains("Add a new stylist");
+    assertThat(pageSource()).contains("View Stylist List");
+  }
+
 //   @Test
 //   public void cuisineIsCreatedTest() {
 //     goTo("http://localhost:4567/");
@@ -122,4 +122,4 @@
 //     submit("#update-restaurant");
 //     assertThat(pageSource()).contains("Pit BBQ 2");
 //   }
-// }
+}

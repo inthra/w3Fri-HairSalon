@@ -1,85 +1,85 @@
-// import java.util.Map;
-// import java.util.HashMap;
-// import spark.ModelAndView;
-// import spark.template.velocity.VelocityTemplateEngine;
-// import static spark.Spark.*;
-//
-// public class App {
-//   public static void main(String[] args) {
-//     staticFileLocation("/public");
-//     String layout = "templates/layout.vtl";
-//
-//     get("/", (request, response) -> {
+import java.util.Map;
+import java.util.HashMap;
+import spark.ModelAndView;
+import spark.template.velocity.VelocityTemplateEngine;
+import static spark.Spark.*;
+
+public class App {
+  public static void main(String[] args) {
+    staticFileLocation("/public");
+    String layout = "templates/layout.vtl";
+
+    get("/", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      model.put("template", "templates/index.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+//     get("/stylists/new", (request, response) -> {
 //       Map<String, Object> model = new HashMap<String, Object>();
-//       model.put("template", "templates/index.vtl");
+//       model.put("template", "templates/stylist-form.vtl");
 //       return new ModelAndView(model, layout);
 //     }, new VelocityTemplateEngine());
 //
-//     get("/cuisines/new", (request, response) -> {
+//     post("/stylists", (request, response) -> {
 //       Map<String, Object> model = new HashMap<String, Object>();
-//       model.put("template", "templates/cuisine-form.vtl");
-//       return new ModelAndView(model, layout);
-//     }, new VelocityTemplateEngine());
-//
-//     post("/cuisines", (request, response) -> {
-//       Map<String, Object> model = new HashMap<String, Object>();
-//       String cuisine_type = request.queryParams("cuisine_type");
-//       Cuisine newCuisine = new Cuisine(cuisine_type);
+//       String stylist_type = request.queryParams("stylist_type");
+//       Cuisine newCuisine = new Cuisine(stylist_type);
 //       newCuisine.save();
-//       model.put("template", "templates/cuisine-success.vtl");
+//       model.put("template", "templates/stylist-success.vtl");
 //       return new ModelAndView(model, layout);
 //     }, new VelocityTemplateEngine());
 //
-//     get("/cuisines", (request, response) -> {
+//     get("/stylists", (request, response) -> {
 //       Map<String, Object> model = new HashMap<String, Object>();
-//       model.put("cuisines", Cuisine.all());
-//       model.put("template", "templates/cuisines.vtl");
+//       model.put("stylists", Cuisine.all());
+//       model.put("template", "templates/stylists.vtl");
 //       return new ModelAndView(model, layout);
 //     }, new VelocityTemplateEngine());
 //
-//     post("/cuisines/:id", (request, response) -> {
+//     post("/stylists/:id", (request, response) -> {
 //       Map<String, Object> model = new HashMap<String, Object>();
-//       Cuisine cuisine = Cuisine.find(Integer.parseInt(request.params("id")));
-//       String cuisine_type = request.queryParams("cuisine_type");
-//       cuisine.update(cuisine_type);
-//       String url = String.format("/cuisines/%d", cuisine.getId());
+//       Cuisine stylist = Cuisine.find(Integer.parseInt(request.params("id")));
+//       String stylist_type = request.queryParams("stylist_type");
+//       stylist.update(stylist_type);
+//       String url = String.format("/stylists/%d", stylist.getId());
 //       response.redirect(url);
 //       return new ModelAndView(model, layout);
 //     }, new VelocityTemplateEngine());
 //
-//     post("/cuisines/:id/delete", (request, response) -> {
+//     post("/stylists/:id/delete", (request, response) -> {
 //       Map<String, Object> model = new HashMap<String, Object>();
-//       Cuisine cuisine = Cuisine.find(Integer.parseInt(request.params("id")));
-//       cuisine.delete();
-//       model.put("template", "templates/cuisine-delete-success.vtl");
+//       Cuisine stylist = Cuisine.find(Integer.parseInt(request.params("id")));
+//       stylist.delete();
+//       model.put("template", "templates/stylist-delete-success.vtl");
 //       return new ModelAndView(model, layout);
 //     }, new VelocityTemplateEngine());
 //
-//     get("/cuisines/:id", (request, response) -> {
+//     get("/stylists/:id", (request, response) -> {
 //       Map<String, Object> model = new HashMap<String, Object>();
-//       Cuisine cuisine = Cuisine.find(Integer.parseInt(request.params(":id")));
-//       model.put("cuisine", cuisine);
-//       model.put("template", "templates/cuisine.vtl");
+//       Cuisine stylist = Cuisine.find(Integer.parseInt(request.params(":id")));
+//       model.put("stylist", stylist);
+//       model.put("template", "templates/stylist.vtl");
 //       return new ModelAndView(model, layout);
 //     }, new VelocityTemplateEngine());
 //
-//     get("cuisines/:id/restaurants/new", (request, response) -> {
+//     get("stylists/:id/restaurants/new", (request, response) -> {
 //       Map<String, Object> model = new HashMap<String, Object>();
-//       Cuisine cuisine = Cuisine.find(Integer.parseInt(request.params(":id")));
-//       model.put("cuisine", cuisine);
-//       model.put("template", "templates/cuisine-restaurants-form.vtl");
+//       Cuisine stylist = Cuisine.find(Integer.parseInt(request.params(":id")));
+//       model.put("stylist", stylist);
+//       model.put("template", "templates/stylist-restaurants-form.vtl");
 //       return new ModelAndView(model, layout);
 //     }, new VelocityTemplateEngine());
 //
 //     post("/restaurants", (request, response) -> {
 //       Map<String, Object> model = new HashMap<String, Object>();
-//       Cuisine cuisine = Cuisine.find(Integer.parseInt(request.queryParams("cuisine_id")));
+//       Cuisine stylist = Cuisine.find(Integer.parseInt(request.queryParams("stylist_id")));
 //       String restaurant_name = request.queryParams("restaurant_name");
 //       String restaurant_description = request.queryParams("restaurant_description");
-//       Restaurant newRestaurant = new Restaurant(restaurant_name, restaurant_description, cuisine.getId());
+//       Restaurant newRestaurant = new Restaurant(restaurant_name, restaurant_description, stylist.getId());
 //       newRestaurant.save();
-//       model.put("cuisine", cuisine);
-//       model.put("template", "templates/cuisine-restaurants-success.vtl");
+//       model.put("stylist", stylist);
+//       model.put("template", "templates/stylist-restaurants-success.vtl");
 //       return new ModelAndView(model, layout);
 //     }, new VelocityTemplateEngine());
 //
@@ -90,19 +90,19 @@
 //       return new ModelAndView(model, layout);
 //     }, new VelocityTemplateEngine());
 //
-//     post("/cuisines/:cuisine_id/restaurants/:id", (request, response) -> {
+//     post("/stylists/:stylist_id/restaurants/:id", (request, response) -> {
 //       Map<String, Object> model = new HashMap<String, Object>();
 //       Restaurant restaurant = Restaurant.find(Integer.parseInt(request.params("id")));
 //       String restaurant_name = request.queryParams("restaurant_name");
 //       String restaurant_description = request.queryParams("restaurant_description");
-//       Cuisine cuisine = Cuisine.find(restaurant.getCuisineId());
+//       Cuisine stylist = Cuisine.find(restaurant.getCuisineId());
 //       restaurant.update(restaurant_name, restaurant_description);
-//       String url = String.format("/cuisines/%d/restaurants/%d", cuisine.getId(), restaurant.getId());
+//       String url = String.format("/stylists/%d/restaurants/%d", stylist.getId(), restaurant.getId());
 //       response.redirect(url);
 //       return new ModelAndView(model, layout);
 //     }, new VelocityTemplateEngine());
 //
-//     get("/cuisines/:cuisine_id/restaurants/:id", (request, response) -> {
+//     get("/stylists/:stylist_id/restaurants/:id", (request, response) -> {
 //       Map<String, Object> model = new HashMap<String, Object>();
 //       Restaurant restaurant = Restaurant.find(Integer.parseInt(request.params(":id")));
 //       model.put("restaurant", restaurant);
@@ -110,5 +110,5 @@
 //       return new ModelAndView(model, layout);
 //     }, new VelocityTemplateEngine());
 //
-//   }
-// }
+  }
+}
