@@ -15,33 +15,33 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-//     get("/stylists/new", (request, response) -> {
-//       Map<String, Object> model = new HashMap<String, Object>();
-//       model.put("template", "templates/stylist-form.vtl");
-//       return new ModelAndView(model, layout);
-//     }, new VelocityTemplateEngine());
-//
-//     post("/stylists", (request, response) -> {
-//       Map<String, Object> model = new HashMap<String, Object>();
-//       String stylist_type = request.queryParams("stylist_type");
-//       Cuisine newCuisine = new Cuisine(stylist_type);
-//       newCuisine.save();
-//       model.put("template", "templates/stylist-success.vtl");
-//       return new ModelAndView(model, layout);
-//     }, new VelocityTemplateEngine());
-//
-//     get("/stylists", (request, response) -> {
-//       Map<String, Object> model = new HashMap<String, Object>();
-//       model.put("stylists", Cuisine.all());
-//       model.put("template", "templates/stylists.vtl");
-//       return new ModelAndView(model, layout);
-//     }, new VelocityTemplateEngine());
-//
+    get("/stylists/new", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      model.put("template", "templates/stylist-form.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    post("/stylists", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      String stylist_name = request.queryParams("input_stylist_name");
+      Stylist newStylist = new Stylist(stylist_name);
+      newStylist.save();
+      model.put("template", "templates/stylist-success.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    get("/stylists", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      model.put("stylists", Stylist.all());
+      model.put("template", "templates/stylists.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
 //     post("/stylists/:id", (request, response) -> {
 //       Map<String, Object> model = new HashMap<String, Object>();
-//       Cuisine stylist = Cuisine.find(Integer.parseInt(request.params("id")));
-//       String stylist_type = request.queryParams("stylist_type");
-//       stylist.update(stylist_type);
+//       Stylist stylist = Stylist.find(Integer.parseInt(request.params("id")));
+//       String input_stylist_name = request.queryParams("input_stylist_name");
+//       stylist.update(input_stylist_name);
 //       String url = String.format("/stylists/%d", stylist.getId());
 //       response.redirect(url);
 //       return new ModelAndView(model, layout);
@@ -49,7 +49,7 @@ public class App {
 //
 //     post("/stylists/:id/delete", (request, response) -> {
 //       Map<String, Object> model = new HashMap<String, Object>();
-//       Cuisine stylist = Cuisine.find(Integer.parseInt(request.params("id")));
+//       Stylist stylist = Stylist.find(Integer.parseInt(request.params("id")));
 //       stylist.delete();
 //       model.put("template", "templates/stylist-delete-success.vtl");
 //       return new ModelAndView(model, layout);
@@ -57,7 +57,7 @@ public class App {
 //
 //     get("/stylists/:id", (request, response) -> {
 //       Map<String, Object> model = new HashMap<String, Object>();
-//       Cuisine stylist = Cuisine.find(Integer.parseInt(request.params(":id")));
+//       Stylist stylist = Stylist.find(Integer.parseInt(request.params(":id")));
 //       model.put("stylist", stylist);
 //       model.put("template", "templates/stylist.vtl");
 //       return new ModelAndView(model, layout);
@@ -65,7 +65,7 @@ public class App {
 //
 //     get("stylists/:id/restaurants/new", (request, response) -> {
 //       Map<String, Object> model = new HashMap<String, Object>();
-//       Cuisine stylist = Cuisine.find(Integer.parseInt(request.params(":id")));
+//       Stylist stylist = Stylist.find(Integer.parseInt(request.params(":id")));
 //       model.put("stylist", stylist);
 //       model.put("template", "templates/stylist-restaurants-form.vtl");
 //       return new ModelAndView(model, layout);
@@ -73,7 +73,7 @@ public class App {
 //
 //     post("/restaurants", (request, response) -> {
 //       Map<String, Object> model = new HashMap<String, Object>();
-//       Cuisine stylist = Cuisine.find(Integer.parseInt(request.queryParams("stylist_id")));
+//       Stylist stylist = Stylist.find(Integer.parseInt(request.queryParams("stylist_id")));
 //       String restaurant_name = request.queryParams("restaurant_name");
 //       String restaurant_description = request.queryParams("restaurant_description");
 //       Restaurant newRestaurant = new Restaurant(restaurant_name, restaurant_description, stylist.getId());
@@ -95,7 +95,7 @@ public class App {
 //       Restaurant restaurant = Restaurant.find(Integer.parseInt(request.params("id")));
 //       String restaurant_name = request.queryParams("restaurant_name");
 //       String restaurant_description = request.queryParams("restaurant_description");
-//       Cuisine stylist = Cuisine.find(restaurant.getCuisineId());
+//       Stylist stylist = Stylist.find(restaurant.getStylistId());
 //       restaurant.update(restaurant_name, restaurant_description);
 //       String url = String.format("/stylists/%d/restaurants/%d", stylist.getId(), restaurant.getId());
 //       response.redirect(url);
