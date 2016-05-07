@@ -1,7 +1,9 @@
-<h1>All clients</h1>
+<h1>All Clients in Database</h1>
+
 <ul>
   #foreach ($client in $clients)
     <li><a href="/clients/$client.getId()">$client.getName()</a></li>
   #end
 </ul>
+
 <a href="/" class="btn btn-primary">Home</a>

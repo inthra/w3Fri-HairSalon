@@ -107,17 +107,4 @@ public class AppTest extends FluentTest {
     assertThat(pageSource()).contains("Joe");
   }
 
-//   @Test
-//   public void clientUpdate() {
-//     Stylist testStylist = new Stylist("Cherie");
-//     testStylist.save();
-//     Client testClient = new Client("Pit Cherie", "Tasty smoke", testStylist.getId());
-//     testClient.save();
-//     String clientPath = String.format("http://localhost:4567/stylists/%d/clients/%d", testStylist.getId(), testClient.getId());
-//     goTo(clientPath);
-//     fill("#client_name").with("Pit Cherie 2");
-//     fill("#client_description").with("Real smokey");
-//     submit("#update-client");
-//     assertThat(pageSource()).contains("Pit Cherie 2");
-//   }
 }
