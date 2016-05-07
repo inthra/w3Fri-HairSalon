@@ -1,0 +1,18 @@
+h1 {
+  text-align: center;
+}
+
+.btn {
+  margin: 7px;
+}
+
+li {
+  font-size: 18px;
+}
+
+.container {
+  background: linear-gradient(to bottom right, white, #b3cccc, white);
+  padding: 30px;
+  margin-top: 10px;
+  border-radius: 7px;
+}
