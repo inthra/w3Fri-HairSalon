@@ -107,4 +107,15 @@ public class AppTest extends FluentTest {
     assertThat(pageSource()).contains("Joe");
   }
 
+  @Test
+  public void clientDelete() {
+    Client testClient = new Client("Cherie", 1);
+    testClient.save();
+    String clientPath = String.format("http://localhost:4567/clients/%d", testClient.getId());
+    goTo(clientPath);
+    submit("#delete-client");
+    assertEquals(0, Client.all().size());
+    assertThat(pageSource()).contains("The client has been deleted.");
+  }
+
 }

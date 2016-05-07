@@ -1,4 +1,10 @@
 <h1>Client name: $client.getName()</h1>
 
+<div>
+  <form action="/clients/$client.getId()/delete" method="post">
+    <button type="submit" class="btn btn-danger" id="delete-client">Delete Client</button>
+  </form>
+</div>
+
 <a href="/" class="btn btn-primary">Home</a>
 <a href="/clients" class="btn btn-primary">View All Clients</a>
